@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="71" id="hN3-1v-97m" customClass="AreaInputCell" customModule="solovel_ver3" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="239" height="71"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hN3-1v-97m" id="yGX-XR-sbR">
+                <rect key="frame" x="0.0" y="0.0" width="239" height="71"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="エリア" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="unO-ll-cbi">
+                        <rect key="frame" x="10" y="10" width="61.5" height="51"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IrM-LX-kKz">
+                        <rect key="frame" x="76.5" y="16" width="152.5" height="39"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="IrM-LX-kKz" secondAttribute="bottom" constant="16" id="8Zf-AK-Skj"/>
+                    <constraint firstItem="unO-ll-cbi" firstAttribute="top" secondItem="yGX-XR-sbR" secondAttribute="top" constant="10" id="KgZ-4P-CrA"/>
+                    <constraint firstItem="unO-ll-cbi" firstAttribute="leading" secondItem="yGX-XR-sbR" secondAttribute="leading" constant="10" id="SfF-2l-EG6"/>
+                    <constraint firstAttribute="bottom" secondItem="unO-ll-cbi" secondAttribute="bottom" constant="10" id="TQr-0M-NZb"/>
+                    <constraint firstItem="IrM-LX-kKz" firstAttribute="top" secondItem="yGX-XR-sbR" secondAttribute="top" constant="16" id="ifr-Wb-XqD"/>
+                    <constraint firstItem="IrM-LX-kKz" firstAttribute="leading" secondItem="unO-ll-cbi" secondAttribute="trailing" constant="5" id="rRs-e9-0KA"/>
+                    <constraint firstAttribute="trailing" secondItem="IrM-LX-kKz" secondAttribute="trailing" constant="10" id="xe1-Rk-TLC"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="textfield" destination="IrM-LX-kKz" id="mVf-Tx-TY7"/>
+            </connections>
+            <point key="canvasLocation" x="192.0289855072464" y="-304.35267857142856"/>
+        </tableViewCell>
+    </objects>
+</document>
