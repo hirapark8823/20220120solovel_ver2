@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="174" id="9dr-yg-hSg" customClass="NoteInputCell" customModule="solovel_ver3" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="174"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9dr-yg-hSg" id="LYB-49-4ap">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="174"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メモ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zd8-Jf-MB2">
+                        <rect key="frame" x="10" y="10" width="41" height="154"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BjS-Ng-YMf">
+                        <rect key="frame" x="56" y="16" width="348" height="142"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="zd8-Jf-MB2" secondAttribute="bottom" constant="10" id="172-PD-65a"/>
+                    <constraint firstItem="BjS-Ng-YMf" firstAttribute="top" secondItem="LYB-49-4ap" secondAttribute="top" constant="16" id="3T5-aR-QVg"/>
+                    <constraint firstItem="zd8-Jf-MB2" firstAttribute="leading" secondItem="LYB-49-4ap" secondAttribute="leading" constant="10" id="5Pw-Mw-ro1"/>
+                    <constraint firstItem="zd8-Jf-MB2" firstAttribute="top" secondItem="LYB-49-4ap" secondAttribute="top" constant="10" id="Ry4-rR-9Nd"/>
+                    <constraint firstItem="BjS-Ng-YMf" firstAttribute="leading" secondItem="zd8-Jf-MB2" secondAttribute="trailing" constant="5" id="Zge-q3-Pg6"/>
+                    <constraint firstAttribute="bottom" secondItem="BjS-Ng-YMf" secondAttribute="bottom" constant="16" id="tvd-0Q-7tI"/>
+                    <constraint firstAttribute="trailing" secondItem="BjS-Ng-YMf" secondAttribute="trailing" constant="10" id="xt6-xT-rLl"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="textfield" destination="BjS-Ng-YMf" id="lMf-VN-edZ"/>
+            </connections>
+            <point key="canvasLocation" x="-4.3478260869565224" y="91.071428571428569"/>
+        </tableViewCell>
+    </objects>
+</document>

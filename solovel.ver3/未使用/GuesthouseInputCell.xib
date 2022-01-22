@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="87" id="JQ5-dO-HgR" customClass="GuesthouseInputCell" customModule="solovel_ver3" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="359" height="87"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JQ5-dO-HgR" id="7ZX-fM-HSR">
+                <rect key="frame" x="0.0" y="0.0" width="359" height="87"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ゲストハウス名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKT-5D-JwF">
+                        <rect key="frame" x="10" y="10" width="143" height="67"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gfs-cT-LxA">
+                        <rect key="frame" x="158" y="16" width="191" height="55"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="gfs-cT-LxA" secondAttribute="trailing" constant="10" id="BlM-xL-eKA"/>
+                    <constraint firstItem="nKT-5D-JwF" firstAttribute="top" secondItem="7ZX-fM-HSR" secondAttribute="top" constant="10" id="Jog-pk-h2B"/>
+                    <constraint firstItem="nKT-5D-JwF" firstAttribute="leading" secondItem="7ZX-fM-HSR" secondAttribute="leading" constant="10" id="TAW-Ts-Qw0"/>
+                    <constraint firstItem="gfs-cT-LxA" firstAttribute="leading" secondItem="nKT-5D-JwF" secondAttribute="trailing" constant="5" id="TyG-nb-v0Y"/>
+                    <constraint firstAttribute="bottom" secondItem="gfs-cT-LxA" secondAttribute="bottom" constant="16" id="V3x-Sn-U5C"/>
+                    <constraint firstAttribute="bottom" secondItem="nKT-5D-JwF" secondAttribute="bottom" constant="10" id="nlQ-NS-4FN"/>
+                    <constraint firstItem="gfs-cT-LxA" firstAttribute="top" secondItem="7ZX-fM-HSR" secondAttribute="top" constant="16" id="tsh-KY-nNT"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="textfield" destination="gfs-cT-LxA" id="LEM-yl-Mfa"/>
+            </connections>
+            <point key="canvasLocation" x="-302.17391304347831" y="-16.40625"/>
+        </tableViewCell>
+    </objects>
+</document>
