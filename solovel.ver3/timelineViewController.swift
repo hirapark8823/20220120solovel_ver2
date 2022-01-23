@@ -14,47 +14,51 @@ import SDWebImage //画像用のライブラリ読み込み(cellのところで�
 class timelineViewController: UIViewController {
     @IBOutlet weak var timelineTableView: UITableView!
     
-    var posts = [Post]() //Firestoreから受け取ったユーザデータを格納する配列
+    var guestHouseInfomations: [GuestHouseInfomation] = [] //Firestoreから受け取ったユーザデータを格納する配列
     override func viewDidLoad() {
         super.viewDidLoad()
         timelineTableView.delegate = self
         timelineTableView.dataSource = self
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        DatabaseManager.shared.fetchUsers { [weak self] posts in //DatabaseManagerのユーザ取得用関数を実行, usersは一覧に表示するUser配列
-            if !posts.isEmpty { //usersが空でない場合
-                self?.posts = posts //上記のusers配列にデータを格納
-                self?.timelineTableView.reloadData() //重要！！
+        timelineTableView.register(UINib(nibName: "timelineTableViewCell", bundle: nil), forCellReuseIdentifier: "timelineTableViewCell")
+        
+        let db = Firestore.firestore()
+        db.collection("post").getDocuments() { [weak self] (querySnapshot, err) in
+            guard let self = self else { return }
+            if let err = err {
+                print("Error getting documents: \(err)")
             } else {
-                print("ユーザー取得失敗")  //本来はエラー処理。ユーザ取得に失敗しました的な表示を画面に出すとか・・
+                for document in querySnapshot!.documents {
+                    let data = document.data()
+                    let guestHouseInfomation = GuestHouseInfomation(
+                        name: data["GHName"] as! String,
+                        area: Area(rawValue: data["area"] as! String)!,
+                        image: URL(string: data["image"] as! String)!,
+                        memo: data["memo"] as! String,
+                        value: data["money"] as! String,
+                        time: Date(timeIntervalSince1970: TimeInterval(data["time"] as! Double)))
+                    self.guestHouseInfomations.append(guestHouseInfomation)
+                }
+                self.timelineTableView.reloadData()
             }
         }
+        
     }
-    
+
     @IBOutlet weak var areapickerView: UIPickerView!
     
 }
 
 extension timelineViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+        return guestHouseInfomations.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TimelineCell", for: indexPath)
-        let user = posts[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "timelineTableViewCell", for: indexPath) as! timelineTableViewCell
+        let user = guestHouseInfomations[indexPath.row]
         cell.textLabel?.text = user.name //userはUser型のオブジェクトみたいなイメージ。表示したい文字列(name)を取り出す
-        if user.photoURL != nil { //該当のuserがphotoURLを持っていればURLから画像を表示(SDWebImageライブラリを使用)
-            cell.imageView?.sd_setImage(with: URL(string: user.photoURL!), completed: { (_, error, _, _) in
-                if error == nil {
-                    cell.setNeedsLayout() //表示用
-                }
-            })
-        } else { //該当のuserがphotoURLを持っていない場合デフォルトの丸いアイコンを表示
-            cell.imageView?.image = UIImage(systemName: "person.circle.fill")
-        }
+        //該当のuserがphotoURLを持っていればURLから画像を表示(SDWebImageライブラリを使用)
+        cell.imageView?.sd_setImage(with: user.image)
         return cell
     }
 }

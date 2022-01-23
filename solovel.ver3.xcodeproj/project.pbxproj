@@ -24,9 +24,7 @@
 		161913E327910BCB007EBAEA /* timelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161913E227910BCB007EBAEA /* timelineViewController.swift */; };
 		161913E627910C10007EBAEA /* houseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161913E527910C10007EBAEA /* houseViewController.swift */; };
 		161913E827910C17007EBAEA /* inputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161913E727910C17007EBAEA /* inputViewController.swift */; };
-		161913EE27917611007EBAEA /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161913ED27917611007EBAEA /* Post.swift */; };
 		161913F02792980A007EBAEA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161913EF2792980A007EBAEA /* LoginViewController.swift */; };
-		161913F2279410AF007EBAEA /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161913F1279410AF007EBAEA /* DatabaseManager.swift */; };
 		167A0A4327734142005141AC /* topViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167A0A4227734142005141AC /* topViewController.swift */; };
 		167A0A4627759603005141AC /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167A0A4427759603005141AC /* MainTableViewCell.swift */; };
 		167A0A4727759603005141AC /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 167A0A4527759603005141AC /* MainTableViewCell.xib */; };
@@ -59,9 +57,7 @@
 		161913E227910BCB007EBAEA /* timelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timelineViewController.swift; sourceTree = "<group>"; };
 		161913E527910C10007EBAEA /* houseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = houseViewController.swift; sourceTree = "<group>"; };
 		161913E727910C17007EBAEA /* inputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inputViewController.swift; sourceTree = "<group>"; };
-		161913ED27917611007EBAEA /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		161913EF2792980A007EBAEA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		161913F1279410AF007EBAEA /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		167A0A4227734142005141AC /* topViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = topViewController.swift; sourceTree = "<group>"; };
 		167A0A4427759603005141AC /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		167A0A4527759603005141AC /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
@@ -147,8 +143,6 @@
 				161913E227910BCB007EBAEA /* timelineViewController.swift */,
 				161913DE2791004C007EBAEA /* timelineTableViewCell.swift */,
 				161913E027910065007EBAEA /* timelineTableViewCell.xib */,
-				161913F1279410AF007EBAEA /* DatabaseManager.swift */,
-				161913ED27917611007EBAEA /* Post.swift */,
 				16866D7C2769EF0400212BE8 /* Assets.xcassets */,
 				8FD8A7F3279D5F2B001E7E38 /* GoogleService-Info.plist */,
 				16866D812769EF0400212BE8 /* Info.plist */,
@@ -308,10 +302,8 @@
 				161913F02792980A007EBAEA /* LoginViewController.swift in Sources */,
 				167A0A4327734142005141AC /* topViewController.swift in Sources */,
 				16866D782769EF0400212BE8 /* ViewController.swift in Sources */,
-				161913F2279410AF007EBAEA /* DatabaseManager.swift in Sources */,
 				161913DD27906913007EBAEA /* PostViewController.swift in Sources */,
 				161913E627910C10007EBAEA /* houseViewController.swift in Sources */,
-				161913EE27917611007EBAEA /* Post.swift in Sources */,
 				8FD8A7F7279DA0D6001E7E38 /* GuestHouse.swift in Sources */,
 				16866D742769EF0400212BE8 /* AppDelegate.swift in Sources */,
 				161913DF2791004D007EBAEA /* timelineTableViewCell.swift in Sources */,
