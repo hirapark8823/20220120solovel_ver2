@@ -67,7 +67,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate & UI
            guard let area = areaTextView.text else {return}
            guard let money = moneyTextView.text else {return}
            guard let memo = memoTextView.text else {return}
-           db.collection("post").addDocument(data: ["GHName":ghName, "area":area, "money":money, "memo":memo, "time":Date().timeIntervalSince1970, "image":postImageUrl]) { (error) in
+           db.collection("post").addDocument(data: ["GHName":ghName, "area":area, "money":money, "memo":memo, "time":Date(), "image":postImageUrl]) { (error) in
                        if error != nil {
                            print("送信失敗")
                        } else {
