@@ -36,7 +36,7 @@ class LoginViewController: UIViewController{
                 return
             }
             print("Login成功")
-            
+            res?.user.refreshToken
             UserDefaults.standard.set( res?.user.providerID, forKey: "loggedInUserId")
             let tabBarController = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
             self.present(tabBarController, animated: true, completion: nil)
