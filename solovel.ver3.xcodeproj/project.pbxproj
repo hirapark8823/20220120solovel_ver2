@@ -37,7 +37,7 @@
 		16866D7B2769EF0400212BE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16866D792769EF0400212BE8 /* Main.storyboard */; };
 		16866D7D2769EF0400212BE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16866D7C2769EF0400212BE8 /* Assets.xcassets */; };
 		16866D802769EF0400212BE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16866D7E2769EF0400212BE8 /* LaunchScreen.storyboard */; };
-		16866D8D276B7AB800212BE8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16866D8C276B7AB800212BE8 /* GoogleService-Info.plist */; };
+		8FD8A7F4279D5F2B001E7E38 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8FD8A7F3279D5F2B001E7E38 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,9 +73,9 @@
 		16866D7C2769EF0400212BE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		16866D7F2769EF0400212BE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		16866D812769EF0400212BE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		16866D8C276B7AB800212BE8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5B9CC9EAFB9552692939B14C /* Pods_solovel_ver3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_solovel_ver3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89E26BEC3B9BD7C0604938F9 /* Pods-solovel.ver3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-solovel.ver3.debug.xcconfig"; path = "Target Support Files/Pods-solovel.ver3/Pods-solovel.ver3.debug.xcconfig"; sourceTree = "<group>"; };
+		8FD8A7F3279D5F2B001E7E38 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,7 +147,7 @@
 				161913F1279410AF007EBAEA /* DatabaseManager.swift */,
 				161913ED27917611007EBAEA /* Post.swift */,
 				16866D7C2769EF0400212BE8 /* Assets.xcassets */,
-				16866D8C276B7AB800212BE8 /* GoogleService-Info.plist */,
+				8FD8A7F3279D5F2B001E7E38 /* GoogleService-Info.plist */,
 				16866D812769EF0400212BE8 /* Info.plist */,
 				161913E427910BDA007EBAEA /* 未使用 */,
 			);
@@ -233,13 +233,13 @@
 			files = (
 				161913D3278C1C21007EBAEA /* ValueInputCell.xib in Resources */,
 				16866D802769EF0400212BE8 /* LaunchScreen.storyboard in Resources */,
-				16866D8D276B7AB800212BE8 /* GoogleService-Info.plist in Resources */,
 				161913CB278BF45A007EBAEA /* GuesthouseInputCell.xib in Resources */,
 				16866D7D2769EF0400212BE8 /* Assets.xcassets in Resources */,
 				16866D7B2769EF0400212BE8 /* Main.storyboard in Resources */,
 				161913E127910065007EBAEA /* timelineTableViewCell.xib in Resources */,
 				167A0A4727759603005141AC /* MainTableViewCell.xib in Resources */,
 				161913CF278C16ED007EBAEA /* AreaInputCell.xib in Resources */,
+				8FD8A7F4279D5F2B001E7E38 /* GoogleService-Info.plist in Resources */,
 				161913D7278C1F1F007EBAEA /* NoteInputCell.xib in Resources */,
 				161913DB278C2127007EBAEA /* PictureInputCell.xib in Resources */,
 			);
