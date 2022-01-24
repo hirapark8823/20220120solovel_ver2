@@ -30,34 +30,36 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate & UI
     //投稿ボタン
     @IBAction func Post(_ sender: Any) {
         //画像が入っていたら
-                guard let postImage = PostIMG.image else {return}
-                //1画像ファイルが大きすぎるので小さくする
-                let uploadImage = postImage.jpegData(compressionQuality: 0.3)
-                //2画像の名前を設定
-                let fileName = NSUUID().uuidString
-                //3保存する場所を指定
-                let storageRef = Storage.storage().reference().child("postImage").child(fileName)
-                //4storageに画像を保存
-                storageRef.putData(uploadImage!, metadata: nil) { (metadate, error) in
-                    //errorがあったら
+        guard let postImage = PostIMG.image else {return}
+        //1画像ファイルが大きすぎるので小さくする
+        let uploadImage = postImage.jpegData(compressionQuality: 0.3)
+        //2画像の名前を設定
+        let fileName = NSUUID().uuidString
+        //3保存する場所を指定
+        let storageRef = Storage.storage().reference().child("postImage").child(fileName)
+        let meta = StorageMetadata()
+        meta.contentType = "image/jpeg" // <- これ！！
+        //4storageに画像を保存
+        storageRef.putData(uploadImage!, metadata: meta) { (metadate, error) in
+            //errorがあったら
+            if error != nil {
+                print("Firestrageへの画像の保存に失敗")
+            }else {
+                print("Firestrageへの画像の保存に成功")
+                //5画像のURLを取得
+                storageRef.downloadURL { (url, error) in
                     if error != nil {
-                        print("Firestrageへの画像の保存に失敗")
+                        print("Firestorageからのダウンロードに失敗しました")
                     }else {
-                        print("Firestrageへの画像の保存に成功")
-                        //5画像のURLを取得
-                        storageRef.downloadURL { (url, error) in
-                            if error != nil {
-                                print("Firestorageからのダウンロードに失敗しました")
-                            }else {
-                                print("Firestorageからのダウンロードに成功しました")
-                                //6URLをString型に変更して変数urlStringにdainyuu
-                                guard let urlString =  url?.absoluteString else {return}
-                                //ここで呼ぶ。postImageUrlにurlStringを入れることで、URLがsavePostに届く
-                                self.savePost(postImageUrl: urlString)
-                            }
-                        }
+                        print("Firestorageからのダウンロードに成功しました")
+                        //6URLをString型に変更して変数urlStringにdainyuu
+                        guard let urlString =  url?.absoluteString else {return}
+                        //ここで呼ぶ。postImageUrlにurlStringを入れることで、URLがsavePostに届く
+                        self.savePost(postImageUrl: urlString)
                     }
                 }
+            }
+        }
     }
     
     //投稿内容を保存する関数
@@ -67,7 +69,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate & UI
            guard let area = areaTextView.text else {return}
            guard let money = moneyTextView.text else {return}
            guard let memo = memoTextView.text else {return}
-           db.collection("post").addDocument(data: ["GHName":ghName, "area":area, "money":money, "memo":memo, "time":Date(), "image":postImageUrl]) { (error) in
+           db.collection("post").addDocument(data: ["GHName":ghName, "area":area, "money":money, "memo":memo, "time":Date().timeIntervalSince1970, "image":postImageUrl]) { (error) in
                        if error != nil {
                            print("送信失敗")
                        } else {
