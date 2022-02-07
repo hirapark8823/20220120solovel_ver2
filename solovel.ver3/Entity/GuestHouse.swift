@@ -8,12 +8,18 @@
 import Foundation
 
 struct GuestHouseInfomation {
+    let id: String
     let name: String
     let area: Area
     let image: URL
     let memo: String
     let value: String
     let time: Date
+}
+
+struct GuestHouseMessage {
+    let name: String
+    let message: String
 }
 
 enum Area: String {

@@ -30,6 +30,7 @@ class timelineViewController: UIViewController {
                 for document in querySnapshot!.documents {
                     let data = document.data()
                     let guestHouseInfomation = GuestHouseInfomation(
+                        id: document.documentID,
                         name: data["GHName"] as! String,
                         area: Area(rawValue: data["area"] as! String)!,
                         image: URL(string: data["image"] as! String)!,
@@ -60,5 +61,18 @@ extension timelineViewController: UITableViewDelegate, UITableViewDataSource {
         //該当のuserがphotoURLを持っていればURLから画像を表示(SDWebImageライブラリを使用)
         cell.userImageView?.sd_setImage(with: user.image)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let info = guestHouseInfomations[indexPath.row]
+        let guestHouseDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "GuestHouseDetailViewController") as! GuestHouseDetailViewController
+        guestHouseDetailViewController.id = info.id
+        guestHouseDetailViewController.imageURL = info.image
+        guestHouseDetailViewController.name = info.name
+        guestHouseDetailViewController.area = info.area.rawValue
+        guestHouseDetailViewController.value = info.value
+        guestHouseDetailViewController.memo = info.memo
+        
+        self.navigationController?.pushViewController(guestHouseDetailViewController, animated: true)
     }
 }

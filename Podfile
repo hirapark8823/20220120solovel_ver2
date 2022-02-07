@@ -6,9 +6,10 @@ target 'solovel.ver3' do
   use_frameworks!
 
   # Pods for solovel.ver3
-  pod 'Firebase/Auth' 
+  pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
+  pod 'Firebase/Database'
   pod 'MessageKit'
   pod 'SDWebImage'
   pod 'Nuke'
