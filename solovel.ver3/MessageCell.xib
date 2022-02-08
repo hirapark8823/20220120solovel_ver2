@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="RAP-oT-Nwu" customClass="MessageCell" customModule="solovel_ver3" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RAP-oT-Nwu" id="ElD-re-qx4">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d03-MD-M3v">
+                        <rect key="frame" x="20" y="12" width="45" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kg4-7X-DGs">
+                        <rect key="frame" x="325" y="12" width="69" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="d03-MD-M3v" firstAttribute="leading" secondItem="ElD-re-qx4" secondAttribute="leading" constant="20" symbolic="YES" id="3Wi-PK-RwB"/>
+                    <constraint firstItem="d03-MD-M3v" firstAttribute="top" secondItem="ElD-re-qx4" secondAttribute="top" constant="12" id="QkU-sK-OZZ"/>
+                    <constraint firstAttribute="bottom" secondItem="kg4-7X-DGs" secondAttribute="bottom" constant="11" id="Qyi-Tf-uWd"/>
+                    <constraint firstItem="kg4-7X-DGs" firstAttribute="top" secondItem="ElD-re-qx4" secondAttribute="top" constant="12" id="aWI-FT-Bnj"/>
+                    <constraint firstItem="kg4-7X-DGs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="d03-MD-M3v" secondAttribute="trailing" constant="6" id="eQp-2S-o3A"/>
+                    <constraint firstAttribute="trailing" secondItem="kg4-7X-DGs" secondAttribute="trailing" constant="20" symbolic="YES" id="xVd-DB-dLm"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="message" destination="kg4-7X-DGs" id="KRe-76-mDl"/>
+                <outlet property="name" destination="d03-MD-M3v" id="rN3-v0-DOy"/>
+            </connections>
+            <point key="canvasLocation" x="-159.42028985507247" y="-1.3392857142857142"/>
+        </tableViewCell>
+    </objects>
+</document>

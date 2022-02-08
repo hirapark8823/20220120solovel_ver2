@@ -40,6 +40,8 @@
 		8FD8A7F4279D5F2B001E7E38 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8FD8A7F3279D5F2B001E7E38 /* GoogleService-Info.plist */; };
 		8FD8A7F7279DA0D6001E7E38 /* GuestHouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD8A7F6279DA0D6001E7E38 /* GuestHouse.swift */; };
 		8FD8A80727B19E5A001E7E38 /* GuestHouseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD8A80627B19E5A001E7E38 /* GuestHouseDetailViewController.swift */; };
+		8FD8A81027B2AEE2001E7E38 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD8A80F27B2AEE2001E7E38 /* MessageCell.xib */; };
+		8FD8A81227B2AF48001E7E38 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD8A81127B2AF48001E7E38 /* MessageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +82,8 @@
 		8FD8A7F3279D5F2B001E7E38 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8FD8A7F6279DA0D6001E7E38 /* GuestHouse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestHouse.swift; sourceTree = "<group>"; };
 		8FD8A80627B19E5A001E7E38 /* GuestHouseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestHouseDetailViewController.swift; sourceTree = "<group>"; };
+		8FD8A80F27B2AEE2001E7E38 /* MessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
+		8FD8A81127B2AF48001E7E38 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +158,8 @@
 				8FD8A7F3279D5F2B001E7E38 /* GoogleService-Info.plist */,
 				16866D812769EF0400212BE8 /* Info.plist */,
 				161913E427910BDA007EBAEA /* 未使用 */,
+				8FD8A80F27B2AEE2001E7E38 /* MessageCell.xib */,
+				8FD8A81127B2AF48001E7E38 /* MessageCell.swift */,
 			);
 			path = solovel.ver3;
 			sourceTree = "<group>";
@@ -246,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				161913D3278C1C21007EBAEA /* ValueInputCell.xib in Resources */,
+				8FD8A81027B2AEE2001E7E38 /* MessageCell.xib in Resources */,
 				16866D802769EF0400212BE8 /* LaunchScreen.storyboard in Resources */,
 				161913CB278BF45A007EBAEA /* GuesthouseInputCell.xib in Resources */,
 				16866D7D2769EF0400212BE8 /* Assets.xcassets in Resources */,
@@ -319,6 +326,7 @@
 				167A0A4927799FA2005141AC /* guesthouse.swift in Sources */,
 				16AF9AF427B287BB00BCEEF7 /* userSrevice.swift in Sources */,
 				8FD8A80727B19E5A001E7E38 /* GuestHouseDetailViewController.swift in Sources */,
+				8FD8A81227B2AF48001E7E38 /* MessageCell.swift in Sources */,
 				16866D762769EF0400212BE8 /* SceneDelegate.swift in Sources */,
 				161913C9278BF2BE007EBAEA /* GuesthouseInputCell.swift in Sources */,
 				161913D9278C2115007EBAEA /* PictureInputCell.swift in Sources */,

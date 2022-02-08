@@ -36,6 +36,7 @@ class GuestHouseDetailViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         inputTextField.delegate = self
+        InfoExchangeTableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
         image.sd_setImage(with: imageURL)
         nameLabel.text = name
         areaLabel.text = area
@@ -45,63 +46,49 @@ class GuestHouseDetailViewController: UIViewController, UITextFieldDelegate {
         InfoExchangeTableView.dataSource = self
         InfoExchangeTableView.delegate = self
         InfoExchangeTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        
-//        func loadData() {
-//            service = UserService()
-//            service?.get(collectionID: "message") { users in
-//                self.allusers = users
-//            }
-//        }
-        
+        fetchMessageData()
+    }
+    
+    func fetchMessageData() {
         //firestoreからのデータ取得
         let db = Firestore.firestore()
-
-        db.collection("message").getDocuments() { (querySnapshot, err) in
+        
+        db.collection("message").whereField("id", isEqualTo: id!).getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
+                var messages: [GuestHouseMessage] = []
                 for document in querySnapshot!.documents {
-//                    let data = document.data()
-//                    let guestHouseMessage = GuestHouseMessage(
-//                        name: data["message"] as! String)
-                    print("\(document.documentID) => \(document.data())")
+                    let data = document.data()
+                    let guestHouseMessage = GuestHouseMessage(
+                        name: data["name"] as! String,
+                        message: data["message"] as! String
+                    )
+                    messages.append(guestHouseMessage)
                 }
+                self.guestHouseMessages = messages
                 self.InfoExchangeTableView.reloadData()
             }
         }
     }
     
-//    private var service: UserService?
-//    private var allusers = [GuestHouseMessage]() {
-//        didSet {
-//            DispatchQueue.main.async {
-//                self.users = self.allusers
-//            }
-//        }
-//    }
-//
-//    var users = [GuestHouseMessage]() {
-//        didSet {
-//            DispatchQueue.main.async {
-//                self.InfoExchangeTableView.reloadData()
-//            }
-//        }
-//    }
-    
     //Firebaseに"message"コレクションでデータ保存
     @IBAction func pushMessage(_ sender: Any) {
+        let name = UserDefaults.standard.string(forKey: "name") ?? "名無しさん"
         let db = Firestore.firestore()
-        db.collection("message").document(id!).updateData(["message": message]) { [self] (error) in
+        db.collection("message").document(id!).updateData(["message": message, "name": name, "date": Date().timeIntervalSince1970]) { [self] (error) in
             if error != nil {
-                db.collection("message").addDocument(data: ["id": id , "message": message] ) { (error) in
+                db.collection("message").addDocument(data: ["id": id, "message": message, "name": name, "date": Date().timeIntervalSince1970]) { (error) in
                     if error != nil {
                         print("送信失敗")
                     } else {
                         print("送信成功")
+                        fetchMessageData()
                     }
                 }
             } else {
                 print("送信成功1")
+                fetchMessageData()
             }
             inputTextField.text = ""
         }
@@ -124,9 +111,10 @@ extension GuestHouseDetailViewController: UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
-        let user = guestHouseMessages[indexPath.row]
-//        cell.message.titleLabel?.text = user.name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as! MessageCell
+        let message = guestHouseMessages[indexPath.row]
+        cell.name.text = message.name
+        cell.message.text = message.message
         return cell
     }
 }

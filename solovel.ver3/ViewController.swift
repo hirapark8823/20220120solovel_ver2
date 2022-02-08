@@ -60,7 +60,7 @@ class ViewController: UIViewController {
     private func addUserInfoToFirestore(email: String){
         guard let uid = Auth.auth().currentUser?.uid else { return }
         guard let name = self.usernameTextFielder.text else{ return }
-        
+        UserDefaults.standard.set(name, forKey: "name")
         let docData = ["email":email, "name":name, "createdAt":Timestamp()] as [String : Any]
         let userRef = Firestore.firestore().collection("users").document(uid)
         
