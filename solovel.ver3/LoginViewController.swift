@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import PKHUD
 
 class LoginViewController: UIViewController{
     
@@ -25,6 +26,8 @@ class LoginViewController: UIViewController{
             passwordTextField.delegate = self
         }
         
+        HUD.show(.progress, onView: view)
+
         guard let email = emailTextField.text else{ return }
         guard let password = passwordTextField.text else{ return }
         
@@ -33,17 +36,49 @@ class LoginViewController: UIViewController{
             
             if let err = err {
                 print("Login失敗", err)
+                HUD.hide{ (_) in
+                    HUD.flash(.error, delay: 1)
+                }
                 return
             }
             print("Login成功")
+            HUD.hide{ (_) in
+                HUD.flash(.success, delay: 1)
+            }
+            
             res?.user.refreshToken
             UserDefaults.standard.set( res?.user.providerID, forKey: "loggedInUserId")
             let tabBarController = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
             self.present(tabBarController, animated: true, completion: nil)
-            
             }
         }
+    //keyboard隠すコード開始
+    @objc func showKeyboard(notofication: Notification){
+        let keyboardFrame =
+        (notofication.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
+        
+        guard let keyboardMinY = keyboardFrame?.minY else{return}
+        let loginButtonMaxY = LoginButton.frame.maxY
+        let distance = loginButtonMaxY - keyboardMinY + 40
+        
+        let transform = CGAffineTransform(translationX: 0, y: -distance)
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, animations: {
+            self.view.transform = transform
+        })
     }
+    
+    @objc func hideKeyboard(){
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, animations: {
+            self.view.transform = .identity
+        })
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    //keyboard隠すコード終了
+}
 
 
 extension LoginViewController: UITextFieldDelegate{

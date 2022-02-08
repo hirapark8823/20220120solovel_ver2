@@ -13,5 +13,6 @@ target 'solovel.ver3' do
   pod 'MessageKit'
   pod 'SDWebImage'
   pod 'Nuke'
+  pod 'PKHUD', '~> 5.0'
 
 end

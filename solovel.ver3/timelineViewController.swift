@@ -22,6 +22,7 @@ class timelineViewController: UIViewController {
         timelineTableView.register(UINib(nibName: "timelineTableViewCell", bundle: nil), forCellReuseIdentifier: "timelineTableViewCell")
         
         let db = Firestore.firestore()
+        
         db.collection("post").getDocuments() { [weak self] (querySnapshot, err) in
             guard let self = self else { return }
             if let err = err {
@@ -30,7 +31,7 @@ class timelineViewController: UIViewController {
                 for document in querySnapshot!.documents {
                     let data = document.data()
                     let guestHouseInfomation = GuestHouseInfomation(
-                        id: document.documentID,
+                        id: document.documentID,  //追加！！firestoreのドキュメント取得
                         name: data["GHName"] as! String,
                         area: Area(rawValue: data["area"] as! String)!,
                         image: URL(string: data["image"] as! String)!,
@@ -42,11 +43,21 @@ class timelineViewController: UIViewController {
                 self.timelineTableView.reloadData()
             }
         }
-        
     }
-
-    @IBOutlet weak var areapickerView: UIPickerView!
     
+    //ログアウトボタン処理
+    @IBAction func tappedLogoutButton(_ sender: Any) {
+        handleLogout()
+    }
+    
+    private func handleLogout(){
+        do{
+            try Auth.auth().signOut()
+            dismiss(animated: true, completion: nil)
+        } catch (let err){
+            print("ログアウト失敗: \(err)")
+        }
+    }
 }
 
 extension timelineViewController: UITableViewDelegate, UITableViewDataSource {
@@ -63,6 +74,7 @@ extension timelineViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    //guesthouseTableViewへ画面遷移
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let info = guestHouseInfomations[indexPath.row]
         let guestHouseDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "GuestHouseDetailViewController") as! GuestHouseDetailViewController

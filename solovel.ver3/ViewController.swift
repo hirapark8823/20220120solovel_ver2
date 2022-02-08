@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import PKHUD
 
 struct User{
     
@@ -29,20 +30,30 @@ class ViewController: UIViewController {
     @IBOutlet weak var passwordTextFielder: UITextField!
     @IBOutlet weak var usernameTextFielder: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    
     @IBAction func tappedRegisterButton(_ sender: Any) {
         handleAuthToFirebase()
     }
     
     private func handleAuthToFirebase(){
+        HUD.show(.progress, onView: view)
         guard let email = emailTextFielder.text else{return}
         guard let password = passwordTextFielder.text else{return}
         
         Auth.auth().createUser(withEmail: email, password: password){(res, err) in
             if let err = err{
                 print("認証情報の取得に失敗しました。\(err)")
+                HUD.hide{ (_) in
+                    HUD.flash(.error, delay: 1)
+                }
                 return
             }
             self.addUserInfoToFirestore(email: email)
+            
+            res?.user.refreshToken
+            UserDefaults.standard.set( res?.user.providerID, forKey: "loggedInUserId")
+            let tabBarController = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+            self.present(tabBarController, animated: true, completion: nil)
         }
     }
     
@@ -56,6 +67,9 @@ class ViewController: UIViewController {
         userRef.setData(docData){(err) in
             if let err = err{
                 print("firestoreへの保存に失敗しました。\(err)")
+                HUD.hide{ (_) in
+                    HUD.flash(.error, delay: 1)
+                }
                 return
             }
             print("firestoreへの保存に成功しました。")
@@ -63,6 +77,9 @@ class ViewController: UIViewController {
             userRef.getDocument { (snapshot, err)in
                 if let err = err {
                     print("ユーザー情報の取得に失敗しました。\(err)")
+                    HUD.hide{ (_) in
+                        HUD.flash(.error, delay: 1)
+                    }
                     return
                 }
                 
@@ -70,6 +87,9 @@ class ViewController: UIViewController {
                 let user = User.init(dic: data)
                 
                 print("ユーザー情報の取得が出来ました。\(user.name)")
+                HUD.hide{ (_) in
+                    HUD.flash(.success, delay: 1)
+                }
             }
         }
     }
@@ -100,10 +120,8 @@ class ViewController: UIViewController {
         self.present(alertVC, animated: true, completion: nil)
     }
     //20210120ログインエラー終了
-
-
     
-    
+    //キーボードをえぇ感じに表示させる処理
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -143,7 +161,7 @@ class ViewController: UIViewController {
     }
 }
 
-
+//文字が入力されていなかったらボタンが押せない処理
 extension ViewController:UITextFieldDelegate{
     func textFieldDidChangeSelection(_ textField: UITextField) {
         let emailIsEmpty = emailTextFielder.text?.isEmpty ?? true

@@ -35,6 +35,8 @@
 		16866D7B2769EF0400212BE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16866D792769EF0400212BE8 /* Main.storyboard */; };
 		16866D7D2769EF0400212BE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16866D7C2769EF0400212BE8 /* Assets.xcassets */; };
 		16866D802769EF0400212BE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16866D7E2769EF0400212BE8 /* LaunchScreen.storyboard */; };
+		16AF9AF227B2872E00BCEEF7 /* userFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AF9AF127B2872E00BCEEF7 /* userFirebase.swift */; };
+		16AF9AF427B287BB00BCEEF7 /* userSrevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AF9AF327B287BB00BCEEF7 /* userSrevice.swift */; };
 		8FD8A7F4279D5F2B001E7E38 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8FD8A7F3279D5F2B001E7E38 /* GoogleService-Info.plist */; };
 		8FD8A7F7279DA0D6001E7E38 /* GuestHouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD8A7F6279DA0D6001E7E38 /* GuestHouse.swift */; };
 		8FD8A80727B19E5A001E7E38 /* GuestHouseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD8A80627B19E5A001E7E38 /* GuestHouseDetailViewController.swift */; };
@@ -71,6 +73,8 @@
 		16866D7C2769EF0400212BE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		16866D7F2769EF0400212BE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		16866D812769EF0400212BE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16AF9AF127B2872E00BCEEF7 /* userFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userFirebase.swift; sourceTree = "<group>"; };
+		16AF9AF327B287BB00BCEEF7 /* userSrevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userSrevice.swift; sourceTree = "<group>"; };
 		5B9CC9EAFB9552692939B14C /* Pods_solovel_ver3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_solovel_ver3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89E26BEC3B9BD7C0604938F9 /* Pods-solovel.ver3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-solovel.ver3.debug.xcconfig"; path = "Target Support Files/Pods-solovel.ver3/Pods-solovel.ver3.debug.xcconfig"; sourceTree = "<group>"; };
 		8FD8A7F3279D5F2B001E7E38 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -144,8 +148,8 @@
 				161913DC27906913007EBAEA /* PostViewController.swift */,
 				161913E227910BCB007EBAEA /* timelineViewController.swift */,
 				161913DE2791004C007EBAEA /* timelineTableViewCell.swift */,
-				8FD8A80627B19E5A001E7E38 /* GuestHouseDetailViewController.swift */,
 				161913E027910065007EBAEA /* timelineTableViewCell.xib */,
+				8FD8A80627B19E5A001E7E38 /* GuestHouseDetailViewController.swift */,
 				16866D7C2769EF0400212BE8 /* Assets.xcassets */,
 				8FD8A7F3279D5F2B001E7E38 /* GoogleService-Info.plist */,
 				16866D812769EF0400212BE8 /* Info.plist */,
@@ -175,6 +179,8 @@
 			isa = PBXGroup;
 			children = (
 				8FD8A7F6279DA0D6001E7E38 /* GuestHouse.swift */,
+				16AF9AF127B2872E00BCEEF7 /* userFirebase.swift */,
+				16AF9AF327B287BB00BCEEF7 /* userSrevice.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -311,6 +317,7 @@
 				16866D742769EF0400212BE8 /* AppDelegate.swift in Sources */,
 				161913DF2791004D007EBAEA /* timelineTableViewCell.swift in Sources */,
 				167A0A4927799FA2005141AC /* guesthouse.swift in Sources */,
+				16AF9AF427B287BB00BCEEF7 /* userSrevice.swift in Sources */,
 				8FD8A80727B19E5A001E7E38 /* GuestHouseDetailViewController.swift in Sources */,
 				16866D762769EF0400212BE8 /* SceneDelegate.swift in Sources */,
 				161913C9278BF2BE007EBAEA /* GuesthouseInputCell.swift in Sources */,
@@ -319,6 +326,7 @@
 				161913D5278C1F0D007EBAEA /* NoteInputCell.swift in Sources */,
 				167A0A4627759603005141AC /* MainTableViewCell.swift in Sources */,
 				161913E327910BCB007EBAEA /* timelineViewController.swift in Sources */,
+				16AF9AF227B2872E00BCEEF7 /* userFirebase.swift in Sources */,
 				161913D1278C1BFE007EBAEA /* ValueInputCell.swift in Sources */,
 				161913E827910C17007EBAEA /* inputViewController.swift in Sources */,
 			);
