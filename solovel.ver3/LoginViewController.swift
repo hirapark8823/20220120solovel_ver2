@@ -27,7 +27,7 @@ class LoginViewController: UIViewController{
         }
         
         HUD.show(.progress, onView: view)
-
+        
         guard let email = emailTextField.text else{ return }
         guard let password = passwordTextField.text else{ return }
         
@@ -45,13 +45,28 @@ class LoginViewController: UIViewController{
             HUD.hide{ (_) in
                 HUD.flash(.success, delay: 1)
             }
-            
-            res?.user.refreshToken
+            self.fetchUserData()
             UserDefaults.standard.set( res?.user.providerID, forKey: "loggedInUserId")
             let tabBarController = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
             self.present(tabBarController, animated: true, completion: nil)
+        }
+    }
+    
+    func fetchUserData() {
+        //firestoreからのデータ取得
+        let db = Firestore.firestore()
+        
+        db.collection("users").whereField("email", isEqualTo: emailTextField.text!).getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    let data = document.data()
+                    UserDefaults.standard.set( data["name"] as! String, forKey: "name")
+                }
             }
         }
+    }
     //keyboard隠すコード開始
     @objc func showKeyboard(notofication: Notification){
         let keyboardFrame =
